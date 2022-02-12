@@ -1,0 +1,88 @@
+﻿@model QuanLyDeTai.Models.SinhVien
+
+@{
+    ViewBag.Title = "XoaSinhVien";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+} 
+
+<h3>Bạn có chắc muốn xóa?</h3>
+<div>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GioiTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioiTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamSinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamSinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QueQuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QueQuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lop.TenLop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lop.TenLop)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Về trang chủ Admin", "Index") |
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>

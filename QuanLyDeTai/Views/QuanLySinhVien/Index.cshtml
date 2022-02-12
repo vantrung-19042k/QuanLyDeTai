@@ -1,0 +1,92 @@
+﻿@using QuanLyDeTai.Models;
+@model PagedList.PagedList<SinhVien>
+
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Quản lý sinh viên";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //khởi tạo controll WebGrid
+    WebGrid grid = new WebGrid(source: Model, rowsPerPage: 20);
+
+}
+
+<h2>Quản lý sinh viên</h2>
+<br />
+
+<button class="btn btn-success">@Html.ActionLink("Thêm sinh viên", "ThemSinhVien", "QuanLySinhVien", new { style = "text-decoration:none" })</button>
+
+@*Show dữ liệu thông qua controll WebGrid*@
+@grid.GetHtml(
+    tableStyle: "divTable", //divTable là tên class có thể thay đổi tương tự với các tham số khác
+    headerStyle: "gridHead",
+    footerStyle: "gridFooter",
+    rowStyle: "gridRow",
+    alternatingRowStyle: "gridAltRow",
+    columns: grid.Columns(
+    grid.Column("MaSV", "Mã sinh viên"),
+    grid.Column("TenSV", "Tên sinh viên"),
+    grid.Column("GioiTinh", "Giới tính"),
+    grid.Column("NamSinh", "Năm sinh"),
+    grid.Column("QueQuan", "Quê quán"),
+    grid.Column("DiaChi", "Địa chỉ"),
+    grid.Column("Email", "Email"),
+    grid.Column("SDT", "SĐT"),
+    grid.Column("MaLop", "Mã lớp"),
+    grid.Column(format: p => @Html.ActionLink("Sửa", "SuaSinhVien", new { id = p.MaSV }, new { @class="btn btn-primary" })),
+    grid.Column(format: p => @Html.ActionLink("Xóa", "XoaSinhVien", new { id = p.MaSV }, new { @class = "btn btn-danger" }))
+//grid.Column(format: p => @Html.Raw("<a type='button' class='btn btn-danger' style='font-size:16px' data-toggle='modal' data-target='#deleteModal' >Xóa</a>"))
+))
+
+@*Phân trang*@
+<div class="text-center">
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+
+<style>
+    .divTable {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1.2em;
+        font-family: sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+        .divTable thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .divTable th,
+        .divTable td {
+            padding: 12px 15px;
+        }
+
+        .divTable tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .divTable tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .divTable tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+            .divTable tbody tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('#btn-popup-delete').on('click', function () {
+            alert("OK");
+        });
+    });
+</script>

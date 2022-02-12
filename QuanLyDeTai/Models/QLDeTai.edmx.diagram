@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0251f6d61dd342d382e17ac01c87df01" Name="Diagram1">
+        <EntityTypeShape EntityType="QLDTModel.DeTai" Width="1.5" PointX="6.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.GiangVien" Width="1.5" PointX="1.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.HuongDan" Width="1.5" PointX="3.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.Khoa" Width="1.5" PointX="4.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.Lop" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDTModel.SinhVien" Width="1.5" PointX="9.375" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="QLDTModel.FK_HuongDan_DeTai" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_SinhVien_DeTai" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_GV_Khoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_HuongDan_GiangVien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_Lop_Khoa" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDTModel.FK_SinhVien_Lop" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
